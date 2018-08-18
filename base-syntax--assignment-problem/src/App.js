@@ -14,15 +14,30 @@ class App extends Component {
   nameChangeHandler = (event) => {
     this.setState({
       users: [
-        { name: event.target.value, password: event.target.value }
+        { name: event.target.value, password: this.state.users[0].password }
       ]
     })
   }
+
+  passwordChangeHandler = (event) => {
+    this.setState({
+      users: [
+        { name: this.state.users[0].name, password: event.target.value }
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
-        <UserInput changed={this.nameChangeHandler}/>
-        <UserOutput name={this.state.users[0].name} password={this.state.users[0].password} />
+        <UserInput 
+          name={this.state.users[0].name}
+          password={this.state.users[0].password}
+          changeName={this.nameChangeHandler}
+          changePassword={this.passwordChangeHandler} />
+        <UserOutput 
+          name={this.state.users[0].name} 
+          password={this.state.users[0].password} />
       </div>
     );
   }
