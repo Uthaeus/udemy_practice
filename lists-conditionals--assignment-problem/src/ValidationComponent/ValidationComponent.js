@@ -3,19 +3,16 @@ import './ValidationComponent.css';
 
 
 const validationComponent = (props) => {
-  if (props.userInLength > 5) {
-    return (
-      <div className="ValidationComp">
-        <p>'Text is long enough'</p>
-      </div>
-    )
-  } else {
-    return (
-      <div className="ValidationComp">
-        <p>'Text too short'</p>
-      </div>
-    )
+  let message = 'Text long enough';
+  if (props.userInLength <= 5) {
+    message = 'Text too short';
   }
+
+  return (
+    <div className="ValidationComp">
+      <p>{message}</p>
+    </div>
+  )
 }
 
 
