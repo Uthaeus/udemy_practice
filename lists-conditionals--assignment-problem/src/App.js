@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import ValidationComponent from './ValidationComponent/ValidationComponent';
+import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
   state = {
@@ -22,6 +23,7 @@ class App extends Component {
       border: '1px solid blue',
       padding: '8px'
     }
+    
     return (
       <div className="App">
         <ol>
@@ -36,6 +38,7 @@ class App extends Component {
         <input type="text" value={this.state.userInput.text} style={inputStyle} onChange={this.inputChangeHandler} />
         <p>{this.state.userInput.text.length}</p>
         <ValidationComponent userInLength={this.state.userInput.text.length} />
+        <CharComponent text={this.state.userInput.text} />
       </div>
     );
   }
