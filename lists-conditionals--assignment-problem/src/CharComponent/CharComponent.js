@@ -2,9 +2,11 @@ import React from 'react';
 import './CharComponent.css';
 
 const chars = (props) => {
-  let charArr = props.text.split('');
-
-  
+  return (
+    <div className="CharComp">
+      <p onClick={props.click}>{props.char}</p>
+    </div>
+  )
 }
 
 

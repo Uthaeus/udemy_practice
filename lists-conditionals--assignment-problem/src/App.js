@@ -6,9 +6,11 @@ import CharComponent from './CharComponent/CharComponent';
 
 class App extends Component {
   state = {
-    userInput: 
-      { text: 'tell us what you think' }
+    userInput: { text: 'tell us what you think' },
+    charArray: this.state.userInput.text.split('')
   }
+
+  
 
   inputChangeHandler = (event) => {
     this.setState({
@@ -17,13 +19,28 @@ class App extends Component {
     })
   }
 
+  deleteCharHandler = (charIndex) => {
+    const charCopy = [...this.state.userInput.text];
+    charCopy.splice(charIndex, 1);
+    this.setState({userInput: charCopy.join('')})
+  }
+
   render() {
     const inputStyle = {
       width: '300px',
       border: '1px solid blue',
       padding: '8px'
     }
-    
+    //let charArray = [...this.state.userInput.text];
+    let chars = (
+      <div>
+        {charArray.map((char, index) => {
+          return <CharComponent
+            click={this.deleteCharHandler(index)}
+            char={char}/>
+        })}
+      </div>
+    )
     return (
       <div className="App">
         <ol>
@@ -38,7 +55,7 @@ class App extends Component {
         <input type="text" value={this.state.userInput.text} style={inputStyle} onChange={this.inputChangeHandler} />
         <p>{this.state.userInput.text.length}</p>
         <ValidationComponent userInLength={this.state.userInput.text.length} />
-        <CharComponent text={this.state.userInput.text} />
+        {chars}
       </div>
     );
   }
