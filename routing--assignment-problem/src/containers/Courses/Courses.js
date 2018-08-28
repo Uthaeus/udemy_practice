@@ -13,6 +13,10 @@ class Courses extends Component {
         ]
     }
 
+    postSelectedHandler = (id) => {
+        this.props.history.push({pathname: '/courses/' + id});
+    }
+
     render () {
         return (
             <div>
@@ -20,10 +24,17 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return <article className="Course" key={course.id}>{course.title}</article>;
+                            return (
+                                <Course 
+                                    title={course.title}
+                                    id={course.id}
+                                    key={course.id}
+                                    clicked={this.postSelectedHandler(course.id)} />
+                            );
                         } )
                     }
                 </section>
+                <Route path={'/courses' + '/:id'} exact component />
             </div>
         );
     }

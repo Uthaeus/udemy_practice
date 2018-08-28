@@ -6,7 +6,7 @@ import Courses from '../Courses/Courses';
 import Users from '../Users/Users';
 
 class Site extends Component {
-
+  
   render() {
     return(
       <div>
