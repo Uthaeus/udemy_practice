@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, NavLink, Switch } from 'react-router-dom';
 
 import './Site.css';
-import Courses from './containers/Courses/Courses';
-import Users from './containers/Users/Users';
+import Courses from '../Courses/Courses';
+import Users from '../Users/Users';
 
 class Site extends Component {
 
