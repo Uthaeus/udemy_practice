@@ -14,6 +14,9 @@ class Site extends Component {
         <header className="Site">
           <nav>
             <ul>
+              <li><NavLink 
+                to="/"
+                exact>Home</NavLink></li>
               <li><NavLink
                 to="/users"
                 exact>Users</NavLink></li>

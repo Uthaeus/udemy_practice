@@ -34,7 +34,7 @@ class Courses extends Component {
                         } )
                     }
                 </section>
-                <Route path={'/courses' + '/:id'} exact component />
+                {/* <Route path={'/courses' + '/:id'} exact component /> */}
             </div>
         );
     }
