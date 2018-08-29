@@ -4,6 +4,7 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import './Site.css';
 import Courses from '../Courses/Courses';
 import Users from '../Users/Users';
+import Home from '../Home/Home';
 
 class Site extends Component {
   
@@ -22,6 +23,10 @@ class Site extends Component {
           </nav>
         </header>
         <Switch>
+          <Route
+            path="/"
+            exact 
+            component={Home} />
           <Route 
             path="/courses"
             component={Courses} />
