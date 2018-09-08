@@ -36,7 +36,7 @@ class Persons extends Component {
                         key={person.id}
                         name={person.name} 
                         age={person.age} 
-                        clicked={() => this.personDeletedHandler(person.id)}/>
+                        clicked={() => this.props.onDeletePerson(person.id)}/>
                 ))}
             </div>
         );
@@ -45,7 +45,7 @@ class Persons extends Component {
 
 const mapStateToProps = state => {
     return {
-
+        persons: state.persons 
     };
 };
 
