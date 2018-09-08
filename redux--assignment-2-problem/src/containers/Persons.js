@@ -16,9 +16,7 @@ class Persons extends Component {
             name: 'Max',
             age: Math.floor( Math.random() * 40 )
         }
-        this.setState( ( prevState ) => {
-            return { persons: prevState.persons.concat(newPerson)}
-        } );
+        this.props.onStorePerson(newPerson);
     }
 
     personDeletedHandler = (personId) => {
@@ -30,8 +28,8 @@ class Persons extends Component {
     render () {
         return (
             <div>
-                <AddPerson personAdded={this.props.onStorePerson} />
-                {this.state.persons.map(person => (
+                <AddPerson personAdded={this.personAddedHandler} />
+                {this.props.persons.map(person => (
                     <Person 
                         key={person.id}
                         name={person.name} 
