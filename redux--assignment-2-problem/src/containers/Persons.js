@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Person from '../components/Person/Person';
 import AddPerson from '../components/AddPerson/AddPerson';
+import * as actionTypes from '../store/actions';
 
 class Persons extends Component {
     state = {
@@ -41,4 +43,18 @@ class Persons extends Component {
     }
 }
 
-export default Persons;
+const mapStateToProps = state => {
+    return {
+
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onStorePerson: (person) => dispatch({type: actionTypes.STORE_PERSON, person: person}),
+        onDeletePerson: (id) => dispatch({type: actionTypes.DELETE_PERSON, personId: id})
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Persons);
